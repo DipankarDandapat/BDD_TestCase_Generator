@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDD Test Case Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> BDD Test Case Generator</h1>
+            <p class="subtitle">Transform your requirements into comprehensive BDD test scenarios using AI-powered multi-agent system</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="requirement">
+                    <i class="fas fa-edit"></i> Requirement Description
+                </label>
+                <textarea 
+                    id="requirement" 
+                    placeholder="Describe your feature requirement in plain English...&#10;&#10;Example:&#10;As a user, I want to be able to login to the system using my email and password so that I can access my personal dashboard."
+                    rows="8"
+                ></textarea>
+                
+                <div class="button-container">
+                    <button id="generateBtn" class="generate-btn">
+                        <i class="fas fa-magic"></i>
+                        <span class="btn-text">Generate BDD Test Cases</span>
+                        <div class="spinner" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                    </button>
+                    <button id="clearBtn" class="clear-btn">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                </div>
+            </div>
+
+            <div class="output-section" id="outputSection" style="display: none;">
+                <div class="output-header">
+                    <h3><i class="fas fa-file-code"></i> Generated BDD Feature File</h3>
+                    <div class="output-actions">
+                        <button id="copyBtn" class="action-btn">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                        <button id="downloadBtn" class="action-btn download-btn" style="display: none;">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+                <pre id="result" class="result-content"></pre>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="error-content">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="errorMessage"></span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Multi-Agent System</h4>
+                    <p>Powered by UserProxyAgent and BDD Writer Agent working together</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>AI-Powered</h4>
+                    <p>Uses advanced language models to understand and generate test scenarios</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-check-double"></i>
+                    <h4>Comprehensive Coverage</h4>
+                    <p>Generates positive, negative, and edge case scenarios automatically</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
+

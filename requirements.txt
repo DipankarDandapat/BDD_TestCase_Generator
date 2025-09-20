@@ -1,0 +1,6 @@
+Flask==3.0.0
+pyautogen
+openai>=1.0.0
+python-dotenv
+flask-cors
+
